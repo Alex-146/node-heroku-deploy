@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
+    "dropbox": "^9.8.6",
     "express": "^4.17.1"
   },
   "devDependencies": {

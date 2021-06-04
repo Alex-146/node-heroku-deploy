@@ -11,6 +11,10 @@ app.get("/", (req, res) => {
   res.json(data);
 });
 
+app.use(express.json());
+
+app.use("/upload", require("./routes/upload"));
+
 const PORT = process.env.PORT ?? 5000;
 
 app.listen(PORT, () => {
