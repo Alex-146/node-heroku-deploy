@@ -1,2 +1,5 @@
 # Ignore modules
 node_modules
+
+# Ingone config
+user-config.json
