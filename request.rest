@@ -1,0 +1,18 @@
+POST http://localhost:5000/upload HTTP/1.1
+content-type: application/json
+
+{
+  "filename": "{{$guid}}.txt",
+  "encoding": "utf-8",
+  "content": "demo"
+}
+
+###
+
+POST http://localhost:5000/upload HTTP/1.1
+content-type: application/json
+
+{
+  "encoding": "utf-8",
+  "content": "no file name"
+}
