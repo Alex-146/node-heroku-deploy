@@ -16,3 +16,9 @@ content-type: application/json
   "encoding": "utf-8",
   "content": "no file name"
 }
+
+###
+GET http://localhost:5000/cors HTTP/1.1
+
+###
+GET http://localhost:5000/cors?url=https://jsonplaceholder.typicode.com/posts/1 HTTP/1.1
