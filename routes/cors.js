@@ -19,4 +19,16 @@ router.get("/", cors(), async (req, res) => {
   }
 });
 
+router.post("/", cors(), async (req, res) => {
+  const { url } = req.body;
+
+  try {
+    const {data} = await axios.get(url);
+    return res.json({ok: true, url, data});
+  }
+  catch(error) {
+    return res.json({ok: false, url, message: error.message});
+  }
+});
+
 module.exports = router;
