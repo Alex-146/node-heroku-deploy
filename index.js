@@ -16,6 +16,7 @@ app.use(express.json());
 app.use("/upload", require("./routes/upload"));
 app.use("/download", require("./routes/download"));
 app.use("/cors", require("./routes/cors"));
+app.use("/vk", require("./routes/vk"));
 
 const PORT = process.env.PORT ?? 5000;
 
