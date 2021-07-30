@@ -23,8 +23,8 @@ router.post("/", cors(), async (req, res) => {
   const { url } = req.body;
 
   try {
-    const {data} = await axios.get(url);
-    return res.json({ok: true, url, data});
+    const {status, data} = await axios.get(url);
+    return res.status(status).json(data);
   }
   catch(error) {
     return res.json({ok: false, url, message: error.message});
