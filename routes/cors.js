@@ -3,7 +3,9 @@ const router = require("express").Router();
 const cors = require("cors");
 const axios = require("axios");
 
-router.get("/", cors(), async (req, res) => {
+router.use(cors());
+
+router.get("/", async (req, res) => {
   const url = req.query.url;
   
   if (!url) {
@@ -19,7 +21,7 @@ router.get("/", cors(), async (req, res) => {
   }
 });
 
-router.post("/", cors(), async (req, res) => {
+router.post("/", async (req, res) => {
   const { url } = req.body;
 
   try {
@@ -28,6 +30,22 @@ router.post("/", cors(), async (req, res) => {
   }
   catch(error) {
     return res.json({ok: false, url, message: error.message});
+  }
+});
+
+router.post("/post", async (req, res) => {
+  const { url, form } = req.body;
+
+  if (!url || !form) {
+    return res.status(400).json({message: "No <url> or <form> presented in request body"});
+  }
+
+  try {
+    const {status, data} = await axios.post(url, form);
+    return res.status(status).json(data);
+  }
+  catch(error) {
+    return res.status(400).json({message: error.message});
   }
 });
 
