@@ -1,8 +1,3 @@
-
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
-
 const axios = require("axios");
 
 const client_id = process.env.VK_APP_ID;

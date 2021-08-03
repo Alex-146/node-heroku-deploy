@@ -1,5 +1,9 @@
 const express = require("express");
 
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
 const app = express();
 
 app.get("/", (req, res) => {
@@ -17,6 +21,7 @@ app.use("/upload", require("./routes/upload"));
 app.use("/download", require("./routes/download"));
 app.use("/cors", require("./routes/cors"));
 app.use("/vk", require("./routes/vk"));
+app.use("/message", require("./routes/message"));
 
 const PORT = process.env.PORT ?? 5000;
 
